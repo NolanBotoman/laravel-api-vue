@@ -5,27 +5,31 @@ import Tabs from '../views/Tabs.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/tab1'
+    redirect: '/observatoire/'
   },
   {
-    path: '/tabs/',
+    path: '/observatoire/',
     component: Tabs,
     children: [
       {
-        path: '',
-        redirect: '/tabs/tab1'
+        path: '/observatoire/',
+        redirect: '/observatoire/à-propos'
       },
       {
-        path: 'tab1',
-        component: () => import('@/views/Tab1.vue')
+        path: 'à-propos',
+        component: () => import('@/views/About.vue')
       },
       {
-        path: 'tab2',
-        component: () => import('@/views/Tab2.vue')
+        path: 'horaires',
+        component: () => import('@/views/Schedules.vue')
       },
       {
-        path: 'tab3',
-        component: () => import('@/views/Tab3.vue')
+        path: 'réservation',
+        component: () => import('@/views/Booking.vue')
+      },
+      {
+        path: 'réservation/annulation/:token',
+        component: () => import('@/views/Cancel.vue')
       }
     ]
   }
